@@ -40,8 +40,6 @@ public class DemoApplication implements CommandLineRunner {
     private void createUsers() {
         TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);
         transactionTemplate.execute((status) -> {
-            System.out.println("setup");
-            userRepository.deleteAll();
             User a = new User();
             a.setUserRoles(EnumSet.of(UserRole.USER));
             a = userRepository.save(a);
